@@ -18,9 +18,9 @@
 
 
         Contrasenya
-        <input type="text" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
+        <input type="password" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
         Torna a posar la contrasenya
-        <input type="text" id="contra2" name="contra2" placeholder="Usuari1@1234"><br><br>
+        <input type="password" id="contra2" name="contra2" placeholder="Usuari1@1234"><br><br>
 
         <input type="submit" value="Registrat">
         <a href="index.php">Torna</a>
@@ -31,5 +31,11 @@
 	        }else{echo $error;}?>
 	</span> 
     </form>
+    <form action="login.vista.php" id="form" method="post"> 
+        Ya t'has registrat? Logat aqui!!<br>
+        <input type="submit" value="Login">
+    </form>
+    
+
 </body>
 </html>
