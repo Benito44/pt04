@@ -9,7 +9,13 @@
     <title>Paginación</title>
 </head>
 <body>
+    <form action="registrar.vista.php" method="post">
+    <input type="submit" value="Registrar-se">
 
+    </form>
+    <form action="login.vista.php" method="post">
+    <input type="submit" value="Login">
+    </form>
     <div class="contenidor">
         <h1>Articles</h1>
 
