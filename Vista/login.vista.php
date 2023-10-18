@@ -25,6 +25,7 @@
 		$error;
 	        }else{echo $error;}?>
 	</span> 
+    
     </form>
     <form action="registrar.vista.php" id="form" method="post"> 
         No t'has registrat? Registrat aqui!!<br>

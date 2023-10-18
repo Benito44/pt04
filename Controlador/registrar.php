@@ -1,5 +1,26 @@
 <?php
 
+function duplicatNOM($data){
+  $connexio_real = connexio();
+  $statement = $connexio_real->prepare("SELECT usuari FROM usuaris WHERE usuari = '$data'");
+  $statement->execute();
+  $data_mostrada = "";
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $data_mostrada = $row["usuari"];
+  }
+  return $data_mostrada;
+}    
+function duplicatEMAIL($data){
+  $connexio_real = connexio();
+  $statement = $connexio_real->prepare("SELECT email FROM usuaris WHERE email = '$data'");
+  $statement->execute();
+  $data_mostrada = "";
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $data_mostrada = $row["email"];
+  }
+  return $data_mostrada;
+}   
+
 $usuari = $_POST['usuari'];
 $email = $_POST['email'];
 $contra = $_POST['contra'];
@@ -15,12 +36,15 @@ return $connexio;
 }
 
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error =   "El DNI no es válido.";
+    $error =   "Correu electrònic no es válido.";
     include 'registrar.vista.php';
     } elseif ($contra != $contra2 || $contra == null){
 
       $error =   "Les contrasenyes no són iguals/han de contenir alguna dada.";
       include 'registrar.vista.php';
+      } else if(duplicatNOM($usuari) == $usuari || duplicatEMAIL($email) == $email){
+        $error = "Valors duplicats";
+        include 'registrar.vista.php';
       }
       else {
         try {
