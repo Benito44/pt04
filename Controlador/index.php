@@ -74,6 +74,6 @@ try {
 }
 $pagina_actual = pagina();
 
-require 'index.vista.php';
+require '../Vista/index.vista.php';
 
 ?>

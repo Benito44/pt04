@@ -25,7 +25,7 @@ $connexio_real = connexio();
             include 'index.php';
         } else {
           $error = "No se ha pasado el email o la contrasenya correctamente";
-          include 'login.vista.php';
+          include  '../Vista/login.vista.php';
         }
     }
 

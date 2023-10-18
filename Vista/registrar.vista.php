@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Usuari</title>
-    <link rel="stylesheet" type="text/css" href="formulari.css">
+    <link rel="stylesheet" type="text/css" href="../formulari.css">
 
 </head>
 <body>
     <h1>Registre</h1>
-    <form action="registrar.php" id="form" method="post">
+    <form action="../Controlador/registrar.php" id="form" method="post">
         Usuari
         <input type="text" id="usuari" name="usuari" placeholder="Usuari1"><br><br>
         Email
@@ -23,7 +23,7 @@
         <input type="password" id="contra2" name="contra2" placeholder="Usuari1@1234"><br><br>
 
         <input type="submit" value="Registrat">
-        <a href="index.php">Torna</a>
+        <a href="../Controlador/index.php">Torna</a>
 
         <span class="error">
 		<?php if(!isset($error)){

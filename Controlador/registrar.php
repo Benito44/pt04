@@ -37,14 +37,14 @@ return $connexio;
 
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error =   "Correu electrònic no es válido.";
-    include 'registrar.vista.php';
+    include '../Vista/registrar.vista.php';
     } elseif ($contra != $contra2 || $contra == null){
 
       $error =   "Les contrasenyes no són iguals/han de contenir alguna dada.";
-      include 'registrar.vista.php';
-      } else if(duplicatNOM($usuari) == $usuari || duplicatEMAIL($email) == $email){
+      include '../Vista/registrar.vista.php';
+          } else if(duplicatNOM($usuari) == $usuari || duplicatEMAIL($email) == $email){
         $error = "Valors duplicats";
-        include 'registrar.vista.php';
+        include '../Vista/registrar.vista.php';
       }
       else {
         try {
