@@ -28,7 +28,7 @@ $contra2 = $_POST['contra2'];
 
 $error = "";
 function connexio(){
-  $dbname = 'pt04_benito_martinez';
+  $dbname = 'pt03_benito_martinez';
   $username = 'root';
   $password = '';
   $connexio = new PDO("mysql:host=localhost;dbname=$dbname",$username,$password);

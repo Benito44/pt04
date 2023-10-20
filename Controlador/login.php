@@ -1,5 +1,5 @@
 <?php
-
+          session_start();
 
 
 
@@ -22,7 +22,9 @@ $connexio_real = connexio();
     $statement->execute();
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         if ($email == $row["email"] && $contra == $row["contrasenya"]){
-            include 'index.php';
+          $_SESSION['email'] = $email;
+          $_SESSION['contra'] = $contra;
+          include 'index.logat.php';
         } else {
           $error = "No se ha pasado el email o la contrasenya correctamente";
           include  '../Vista/login.vista.php';

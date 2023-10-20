@@ -14,9 +14,6 @@
         <input type="text" id="usuari" name="usuari" placeholder="Usuari1"><br><br>
         Email
         <input type="text"  id="email" name="email" placeholder="Usuari1@gmail.com"><br><br>
-        
-
-
         Contrasenya
         <input type="password" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
         Torna a posar la contrasenya
