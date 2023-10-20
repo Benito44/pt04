@@ -1,5 +1,4 @@
 <?php 
-// session_start();
 
 /**
  * pagina
@@ -24,17 +23,17 @@ function pagina(){
  */
 function paginacio($paginas, $pagina_actual){
     for ($x = 1; $x <= $paginas; $x++) { 
-        echo '<li class="' . ($x == $pagina_actual ? "active" : "") . '"><a href="index.php?pagina=' . $x . '">' . $x . '</a></li>';
+        echo '<li class="' . ($x == $pagina_actual ? "active" : "") . '"><a href="index.logat.php?pagina=' . $x . '">' . $x . '</a></li>';
         $nom_pagina = $x;
     }
     if ($pagina_actual != $nom_pagina) {
-        $url = "index.php?pagina=" . ($pagina_actual+1);
+        $url = "index.logat.php?pagina=" . ($pagina_actual+1);
         echo "<li><a href=\"$url\">Seguent</a></li>\n";
     }else{
         echo '<li class="' . ("disabled") . '">Seguent</li>';
     }
     if($pagina_actual > 1){
-        $url = "index.php?pagina=" . ($pagina_actual-1);
+        $url = "index.logat.php?pagina=" . ($pagina_actual-1);
         echo "<li><a href=\"$url\">Anterior</a></li>\n";
     }else{
         echo '<li class="' . ("disabled") . '">Anterior</li>';                   
@@ -42,6 +41,7 @@ function paginacio($paginas, $pagina_actual){
 }
 
 /**
+ * 
  * mostrar_dades
  * 
  * @param  mixed $connexio
@@ -49,7 +49,19 @@ function paginacio($paginas, $pagina_actual){
  * @return void
  */
 function mostrar_dades($connexio, $pagina_actual){
-    $statement = $connexio->prepare("SELECT * FROM articles");
+    $email = $_SESSION['email'];
+    $usuari_id = "";
+    $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE email = ?");
+    $statement->bindParam(1,$email);
+    $statement->execute();
+
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $usuari_id = $row["usuari_id"];
+    }
+
+
+    $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id = ?");
+    $statement->bindParam(1,$usuari_id);
     $statement->execute();
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -57,6 +69,16 @@ function mostrar_dades($connexio, $pagina_actual){
     }
 }
 
+/**
+ * cerrar_sesion
+ * Destruye la sesión y redirige al usuario a index.php
+ */
+function cerrar_sessio() {
+    session_start(); // Inicia la sesión si aún no se ha iniciado
+    session_destroy(); // Destruye la sesión
+    header('Location: index.php'); // Redirige al usuario a la página de inicio
+    exit(); // Asegura que el script se detenga después de la redirección
+}
 
 // Conexión a la base de datos	
 try {
@@ -73,6 +95,6 @@ try {
 }
 $pagina_actual = pagina();
 
-require 'index.logat.vista.php';
+require '../Vista/index.logat.vista.php';
 
 ?>

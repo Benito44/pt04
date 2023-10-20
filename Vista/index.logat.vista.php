@@ -23,6 +23,10 @@
                 <?php paginacio($paginas, $pagina_actual) ?>
             </ul>
         </section>
+        <a href="../Controlador/cerrar_session.php">Cerrar sesión</a>
+        <a href="../Controlador/cerrar_session.php">Insertar</a>
+        <a href="../Controlador/cerrar_session.php">Modificar</a>
+        <a href="../Controlador/cerrar_session.php">Eliminar</a></a>
     </div>
 </body>
 </html>
