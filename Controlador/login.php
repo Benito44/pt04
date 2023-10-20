@@ -14,14 +14,13 @@ return $connexio;
 }
 $email = $_POST['email'];
 $contra = $_POST['contra'];
-
 $connexio_real = connexio();
     $error = "";
      $statement = $connexio_real->prepare("SELECT * FROM usuaris WHERE email = ?");
     $statement->bindParam(1,$email);
     $statement->execute();
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        if ($email == $row["email"] && $contra == $row["contrasenya"]){
+        if ($email == $row["email"] && (password_verify($contra,$row["contrasenya"]))){
           $_SESSION['email'] = $email;
           $_SESSION['contra'] = $contra;
           include 'index.logat.php';
