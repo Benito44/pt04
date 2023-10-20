@@ -14,19 +14,31 @@
         
         <section class="articles">
             <ul>
-                <?php mostrar_dades($connexio, $pagina_actual) ?>
+                <?php mostrar_dades2($connexio, $pagina_actual) ?>
             </ul>
         </section>
 
         <section class="paginacio">
             <ul >
-                <?php paginacio($paginas, $pagina_actual) ?>
+                <?php paginacio2($paginas, $pagina_actual) ?>
             </ul>
         </section>
         <a href="../Controlador/cerrar_session.php">Cerrar sesión</a>
-        <a href="../Controlador/cerrar_session.php">Insertar</a>
-        <a href="../Controlador/cerrar_session.php">Modificar</a>
-        <a href="../Controlador/cerrar_session.php">Eliminar</a></a>
-    </div>
+
+        <form action="../Vista/inserirvista.php" id="form" method="post"> 
+        Insertar<br>
+        <input type="submit" value="Insertar">
+        </form>
+
+        <form action="login.vista.php" id="form" method="post"> 
+        Modificar<br>
+            <input type="submit" value="Modificar">
+        </form>
+
+        <form action="login.vista.php" id="form" method="post"> 
+        Eliminar<br>
+            <input type="submit" value="Eliminar">
+        </form>
+        </div>
 </body>
 </html>

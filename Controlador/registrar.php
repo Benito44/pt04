@@ -51,6 +51,7 @@ return $connexio;
           $connexio_real = connexio();
           error_reporting(0);
           $contra = password_hash($contra, PASSWORD_BCRYPT);
+          
           // Fem la secuencia per insertar l'usuari
           $statement = $connexio_real->prepare("INSERT INTO usuaris (usuari, email, contrasenya, contrasenya2) VALUES (?,?,?,?)");
           $statement->bindParam(1,$usuari);

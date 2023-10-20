@@ -1,10 +1,5 @@
 <?php
-          session_start();
-
-
-
-
-
+ session_start();
 function connexio(){
   $dbname = 'pt03_benito_martinez';
   $username = 'root';
@@ -19,6 +14,7 @@ $connexio_real = connexio();
      $statement = $connexio_real->prepare("SELECT * FROM usuaris WHERE email = ?");
     $statement->bindParam(1,$email);
     $statement->execute();
+
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         if ($email == $row["email"] && (password_verify($contra,$row["contrasenya"]))){
           $_SESSION['email'] = $email;

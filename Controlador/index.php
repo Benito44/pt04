@@ -1,5 +1,4 @@
 <?php 
-session_start();
 
 /**
  * pagina
@@ -70,10 +69,9 @@ try {
     $paginas = ceil(intval($num_total_registros) / intval(20));
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
-    session_destroy();
 }
 $pagina_actual = pagina();
 
 require '../Vista/index.vista.php';
-session_destroy();
+
 ?>

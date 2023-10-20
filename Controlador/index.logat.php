@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 /**
  * pagina
  *
@@ -21,7 +21,7 @@ function pagina(){
  * @param  int $pagina_actual
  * @return void
  */
-function paginacio($paginas, $pagina_actual){
+function paginacio2($paginas, $pagina_actual){
     for ($x = 1; $x <= $paginas; $x++) { 
         echo '<li class="' . ($x == $pagina_actual ? "active" : "") . '"><a href="index.logat.php?pagina=' . $x . '">' . $x . '</a></li>';
         $nom_pagina = $x;
@@ -41,14 +41,13 @@ function paginacio($paginas, $pagina_actual){
 }
 
 /**
- * 
  * mostrar_dades
- * 
  * @param  mixed $connexio
  * @param  mixed $pagina_actual
  * @return void
  */
-function mostrar_dades($connexio, $pagina_actual){
+function mostrar_dades2($connexio, $pagina_actual){
+    $email = "";
     $email = $_SESSION['email'];
     $usuari_id = "";
     $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE email = ?");
@@ -74,10 +73,10 @@ function mostrar_dades($connexio, $pagina_actual){
  * Destruye la sesión y redirige al usuario a index.php
  */
 function cerrar_sessio() {
-    session_start(); // Inicia la sesión si aún no se ha iniciado
-    session_destroy(); // Destruye la sesión
-    header('Location: index.php'); // Redirige al usuario a la página de inicio
-    exit(); // Asegura que el script se detenga después de la redirección
+    session_start();
+    session_destroy(); 
+    header('Location: index.php'); // Redirigeix a l'usuari a la página de'nicio
+    exit(); 
 }
 
 // Conexión a la base de datos	
