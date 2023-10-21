@@ -48,7 +48,7 @@ function paginacio($paginas, $pagina_actual){
  * @return void
  */
 function mostrar_dades($connexio, $pagina_actual){
-    $statement = $connexio->prepare("SELECT * FROM articles");
+    $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id IS NULL ");
     $statement->execute();
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

@@ -23,12 +23,12 @@
                 <?php paginacio2($paginas, $pagina_actual) ?>
             </ul>
         </section>
+        
         <a href="../Controlador/cerrar_session.php">Cerrar sesión</a>
+        <br>
         <form action="modificar.php" id="form" method="post"> 
-        <h1>Insertar</h1>
-        Insertar article <br>
-        <input type="text"  id="article" name="article"><br>
-        <input type="submit" value="insertar">
+        <h4>Modificacio d'articles</h4>
+                <input type="submit" value="insertar">
         </form>
 
 

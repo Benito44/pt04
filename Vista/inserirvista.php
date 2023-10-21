@@ -15,17 +15,17 @@
 
         <form action="modificado.php" id="form" method="post"> 
         <h1>Modificar</h1>
-        Sel·leccionar ID<br><input type="numbet"  id="id_vell" name="id_vell"><br>
+        Sel·leccionar ID<br><input type="number"  id="id_vell" name="id_vell"><br>
         Article modificat<br><input type="text"  id="article_nou" name="article_nou"><br>
         <input type="submit" value="Modificar">
         </form>
         
         <h1>Eliminar</h1>
-        <form action="../Vista/eliminar.vista.php" id="form" method="post"> 
+        <form action="esborrar.php" id="form" method="post"> 
         Eliminar article<br>
-        <input type="text"  id="article" name="article"><br>
+        <input type="number"  id="id" name="id"><br>
         <input type="submit" value="Eliminar">
         </form>
-
+        <a href="../Controlador/index.logat.php">Torna</a>
 </body>
 </html>
