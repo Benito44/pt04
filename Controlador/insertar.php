@@ -27,12 +27,12 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
 // Fem la secuencia per insertar els usuaris
 $statement = $connexio->prepare("INSERT INTO articles (article, usuari_id) VALUES (?,?)");
-$statement->bindParam(1,$article);
+ $statement->bindParam(1,$article);
 $statement->bindParam(2,$usuari_id);
 
 $nameError =  "Insertat correctament";
     $statement->execute();
-
+    
 
 }catch (Exception $e) {
     echo "Error:" .  $e->getMessage();

@@ -6,10 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="../Controlador/insertar.php">
-    Article<input type="text"  id="article" name="article"><br>
-    <input type="submit" value="insertar">
-    <a href="../Controlador/index.logat.php">Torna</a>
-    </form>
+<form action="modificar.php" id="form" method="post"> 
+        <h1>Insertar</h1>
+        Insertar article <br>
+        <input type="text"  id="article" name="article"><br>
+        <input type="submit" value="insertar">
+        </form>
+
+        <form action="modificado.php" id="form" method="post"> 
+        <h1>Modificar</h1>
+        Sel·leccionar ID<br><input type="numbet"  id="id_vell" name="id_vell"><br>
+        Article modificat<br><input type="text"  id="article_nou" name="article_nou"><br>
+        <input type="submit" value="Modificar">
+        </form>
+        
+        <h1>Eliminar</h1>
+        <form action="../Vista/eliminar.vista.php" id="form" method="post"> 
+        Eliminar article<br>
+        <input type="text"  id="article" name="article"><br>
+        <input type="submit" value="Eliminar">
+        </form>
+
 </body>
 </html>

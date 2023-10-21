@@ -25,8 +25,4 @@ $connexio_real = connexio();
           include  '../Vista/login.vista.php';
         }
     }
-
-
-
-
 ?>

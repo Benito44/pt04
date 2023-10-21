@@ -24,21 +24,14 @@
             </ul>
         </section>
         <a href="../Controlador/cerrar_session.php">Cerrar sesión</a>
-
-        <form action="../Vista/inserirvista.php" id="form" method="post"> 
-        Insertar<br>
-        <input type="submit" value="Insertar">
+        <form action="modificar.php" id="form" method="post"> 
+        <h1>Insertar</h1>
+        Insertar article <br>
+        <input type="text"  id="article" name="article"><br>
+        <input type="submit" value="insertar">
         </form>
 
-        <form action="login.vista.php" id="form" method="post"> 
-        Modificar<br>
-            <input type="submit" value="Modificar">
-        </form>
 
-        <form action="login.vista.php" id="form" method="post"> 
-        Eliminar<br>
-            <input type="submit" value="Eliminar">
-        </form>
         </div>
 </body>
 </html>
