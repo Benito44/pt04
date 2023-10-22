@@ -1,4 +1,5 @@
 <?php 
+// Ens connectem a la base de dades
 function connexio(){
     $dbname = 'pt04_benito_martinez';
     $username = 'root';
@@ -6,6 +7,7 @@ function connexio(){
     $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
     return $connexio;
 }
+// Agafem l'id de l'usuari que s'ha logat
 function usuari($usuari){
     $usuari_id = "";
     $connexio = "";

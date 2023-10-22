@@ -5,20 +5,15 @@ include '../Vista/inserirvista.php';
 include_once '../Model/mainfunction.php';
 $connexio = connexio();
 try {
-
     $usuari = "";
     $usuari = $_SESSION['usuari'];
     $usuari_id = "";
     $usuari_id = usuari($usuari);
+    error_reporting(0);
 
-
-
-error_reporting(0);
-
-$article = null;
-$article = $_POST['article'];
-
-// insertar
+    $article = null;
+    $article = $_POST['article'];
+// Insertem articles a la base de dades i validem que no hi hagui repetits
 if ($article != null) {
     $existingArticleQuery = $connexio->prepare("SELECT COUNT(*) FROM articles WHERE article = ? AND usuari_id = ?");
     $existingArticleQuery->bindParam(1, $article);
@@ -27,21 +22,21 @@ if ($article != null) {
     $existingArticleCount = $existingArticleQuery->fetchColumn();
 
     if ($existingArticleCount == 0) {
-        // El artículo no existe, así que lo insertamos
+        // L'article no existeix, ho insertem
         $insertStatement = $connexio->prepare("INSERT INTO articles (article, usuari_id) VALUES (?, ?)");
         $insertStatement->bindParam(1, $article);
         $insertStatement->bindParam(2, $usuari_id);
         $insertStatement->execute();
         $_POST['article'] = null;
     } else {
-        // El artículo ya existe, puedes mostrar un mensaje de error o tomar otra acción.
-        echo "El artículo ja existeix.";
+        echo "L'article ja existeix.";
     }
 }
 $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id = ?");
 $statement->bindParam(1,$usuari_id);
 $statement->execute();
 echo '<section><ul>';
+// Mostrem els articles desprès d'insertar
 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     echo '<li>' . $row["id"] . " - " . $row["article"] . '</li>';
 }

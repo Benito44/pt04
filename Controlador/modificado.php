@@ -15,7 +15,7 @@ try {
 error_reporting(0);
 
 
-// modificar
+// Modifiquem l'article on l'usuari ens indica depenent de l'id insertat
 $article_nou = "";
 $id_vell = "";
 $article_nou = $_POST['article_nou']; 

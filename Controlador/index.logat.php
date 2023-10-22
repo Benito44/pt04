@@ -5,7 +5,7 @@ include_once '../Model/mainfunction.php';
 $connexio = connexio();
 /**
  * pagina
- *
+ * Agafa la pàgina actual
  * @return void
  */
 function pagina(){
@@ -19,7 +19,7 @@ function pagina(){
 }
 /**
  * paginacio
- *
+ * Creem la paginació indicant les pàgines 
  * @param  int $paginas
  * @param  int $pagina_actual
  * @return void
@@ -43,13 +43,14 @@ function paginacio2($paginas, $pagina_actual){
     }
 }
 
+
 /**
- * mostrar_dades
+ * mostrar_dades2
+ * Mostrem les dades dels articles depenent de l'id de l'usuari logat
  * @param  mixed $connexio
- * @param  mixed $pagina_actual
  * @return void
  */
-function mostrar_dades2($connexio, $pagina_actual){
+function mostrar_dades2($connexio){
     $connexio = connexio();
     $usuari = $_SESSION['usuari'];
     $usuari_id = "";
@@ -67,7 +68,7 @@ function mostrar_dades2($connexio, $pagina_actual){
 
 /**
  * cerrar_sesion
- * Destruye la sesión y redirige al usuario a index.php
+ * Tanca la sessió
  */
 function cerrar_sessio() {
     session_destroy(); 

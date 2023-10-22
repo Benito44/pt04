@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" href="../estils.css"> <!-- Hacer referencia a tu archivo de estilos -->
+    <link rel="stylesheet" href="../estils.css"> 
     <title>Paginación</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         
         <section class="articles">
             <ul>
-                <?php mostrar_dades2($connexio, $pagina_actual) ?>
+                <?php mostrar_dades2($connexio) ?>
             </ul>
         </section>
 

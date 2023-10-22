@@ -1,6 +1,6 @@
 <?php
-require 'index.php'; // Asegúrate de incluir el archivo de configuración si es necesario
+require 'index.php';
 
-// Llama a la función para cerrar la sesión
+// Crida a la funció per tancar la sessió
 cerrar_sessio();
 ?>

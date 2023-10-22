@@ -10,7 +10,7 @@ try {
     $usuari_id = "";
     $usuari_id = usuari($usuari);
     error_reporting(0);
-// modificar
+// Esborrar l'article on l'usuari indiqui el seu ID 
     $id = "";
     $id = $_POST['id']; 
     $statement = $connexio->prepare("DELETE FROM articles WHERE id = ? AND usuari_id = ?");

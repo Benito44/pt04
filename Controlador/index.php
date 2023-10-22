@@ -17,7 +17,7 @@ function pagina(){
 }
 /**
  * paginacio
- *
+ * Creem la paginació indicant les pàgines 
  * @param  int $paginas
  * @param  int $pagina_actual
  * @return void
@@ -43,7 +43,7 @@ function paginacio($paginas, $pagina_actual){
 
 /**
  * mostrar_dades
- * 
+ * Mostrem les dades dels articles on no tenen usuari_id
  * @param  mixed $connexio
  * @param  mixed $pagina_actual
  * @return void
@@ -58,9 +58,7 @@ function mostrar_dades($connexio, $pagina_actual){
 }
 
 
-// Conexión a la base de datos	
 try {
-
     $num_total_registros = $connexio->query("SELECT COUNT(*) FROM articles")->fetchColumn();
     $paginas = ceil(intval($num_total_registros) / intval(20));
 } catch (PDOException $e) {
