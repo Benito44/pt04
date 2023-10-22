@@ -1,5 +1,7 @@
 <?php 
-session_start();
+
+include_once '../Model/mainfunction.php';
+$connexio = connexio();
 /**
  * pagina
  *
@@ -47,17 +49,12 @@ function paginacio2($paginas, $pagina_actual){
  * @return void
  */
 function mostrar_dades2($connexio, $pagina_actual){
-    $email = "";
+    $connexio = connexio();
+    //$email = "";
     $email = $_SESSION['email'];
     $usuari_id = "";
-    $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE email = ?");
-    $statement->bindParam(1,$email);
-    $statement->execute();
 
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $usuari_id = $row["usuari_id"];
-    }
-
+    $usuari_id = usuari($email);
 
     $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id = ?");
     $statement->bindParam(1,$usuari_id);
@@ -73,7 +70,6 @@ function mostrar_dades2($connexio, $pagina_actual){
  * Destruye la sesión y redirige al usuario a index.php
  */
 function cerrar_sessio() {
-    session_start();
     session_destroy(); 
     header('Location: index.php'); // Redirigeix a l'usuari a la página de'nicio
     exit(); 
@@ -81,12 +77,6 @@ function cerrar_sessio() {
 
 // Conexión a la base de datos	
 try {
-    $dbname = 'pt03_benito_martinez';
-    $username = 'root';
-    $password = '';
-    $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
-    echo "Conectada correctamente";
-
     $num_total_registros = $connexio->query("SELECT COUNT(*) FROM articles")->fetchColumn();
     $paginas = ceil(intval($num_total_registros) / intval(20));
 } catch (PDOException $e) {

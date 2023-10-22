@@ -16,7 +16,7 @@
 
 
         Contrasenya
-        <input type="text" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
+        <input type="password" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
         <input type="submit" value="Login">
         <a href="../Controlador/index.php">Torna</a>
 

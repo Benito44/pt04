@@ -1,12 +1,6 @@
 <?php
- session_start();
-function connexio(){
-  $dbname = 'pt03_benito_martinez';
-  $username = 'root';
-  $password = '';
-  $connexio = new PDO("mysql:host=localhost;dbname=$dbname",$username,$password);
-return $connexio;
-}
+session_start();
+include_once '../Model/mainfunction.php';
 $email = $_POST['email'];
 $contra = $_POST['contra'];
 $connexio_real = connexio();

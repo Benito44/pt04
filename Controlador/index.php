@@ -1,5 +1,6 @@
 <?php 
-
+include_once '../Model/mainfunction.php';
+$connexio = connexio();
 /**
  * pagina
  *
@@ -59,11 +60,6 @@ function mostrar_dades($connexio, $pagina_actual){
 
 // Conexión a la base de datos	
 try {
-    $dbname = 'pt03_benito_martinez';
-    $username = 'root';
-    $password = '';
-    $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
-    echo "Conectada correctamente";
 
     $num_total_registros = $connexio->query("SELECT COUNT(*) FROM articles")->fetchColumn();
     $paginas = ceil(intval($num_total_registros) / intval(20));

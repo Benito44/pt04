@@ -2,24 +2,14 @@
 // Benito Martinez Florido
 session_start();
 include '../Vista/inserirvista.php';
+include_once '../Model/mainfunction.php';
+$connexio = connexio();
 try {
-    $dbname = 'pt03_benito_martinez';
-    $username = 'root';
-    $password = '';
-    $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
-    echo "Conectada correctamente";
 
     $email = "";
     $email = $_SESSION['email'];
     $usuari_id = "";
-    $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE email = ?");
-    $statement->bindParam(1,$email);
-    $statement->execute();
-
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $usuari_id = $row["usuari_id"];
-    }
-
+    $usuari_id = usuari($email);
 
 
 

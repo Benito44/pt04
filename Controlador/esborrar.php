@@ -1,24 +1,14 @@
 <?php 
 // Benito Martinez Florido
 session_start();
+include_once '../Model/mainfunction.php';
 include '../Vista/inserirvista.php';
+$connexio = connexio();
 try {
-    $dbname = 'pt03_benito_martinez';
-    $username = 'root';
-    $password = '';
-    $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
-    echo "Conectada correctamente";
-
     $email = "";
     $email = $_SESSION['email'];
     $usuari_id = "";
-    $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE email = ?");
-    $statement->bindParam(1,$email);
-    $statement->execute();
-
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $usuari_id = $row["usuari_id"];
-    }
+    $usuari_id = usuari($email);
 
 
 
@@ -30,8 +20,9 @@ error_reporting(0);
 
     $id = "";
     $id = $_POST['id']; 
-    $statement = $connexio->prepare("DELETE FROM articles WHERE id = ?");
+    $statement = $connexio->prepare("DELETE FROM articles WHERE id = ? AND usuari_id = ?");
     $statement->bindParam(1,$id);
+    $statement->bindParam(2,$usuari_id);
     $statement->execute();
 
     $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id = ?");
