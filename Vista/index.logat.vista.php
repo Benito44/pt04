@@ -26,9 +26,9 @@
         
         <a href="../Controlador/cerrar_session.php">Cerrar sesión</a>
         <br>
-        <form action="modificar.php" id="form" method="post"> 
+        <form action="insertar.php" id="form" method="post"> 
         <h4>Modificacio d'articles</h4>
-                <input type="submit" value="insertar">
+                <input type="submit" value="Modificacio d'articles">
         </form>
 
 

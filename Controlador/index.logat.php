@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+error_reporting(0);
 include_once '../Model/mainfunction.php';
 $connexio = connexio();
 /**
@@ -50,11 +51,10 @@ function paginacio2($paginas, $pagina_actual){
  */
 function mostrar_dades2($connexio, $pagina_actual){
     $connexio = connexio();
-    //$email = "";
-    $email = $_SESSION['email'];
+    $usuari = $_SESSION['usuari'];
     $usuari_id = "";
 
-    $usuari_id = usuari($email);
+    $usuari_id = usuari($usuari);
 
     $statement = $connexio->prepare("SELECT * FROM articles WHERE usuari_id = ?");
     $statement->bindParam(1,$usuari_id);

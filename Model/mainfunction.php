@@ -6,12 +6,12 @@ function connexio(){
     $connexio = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
     return $connexio;
 }
-function usuari($email){
+function usuari($usuari){
     $usuari_id = "";
     $connexio = "";
     $connexio = connexio();
-    $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE email = ?");
-    $statement->bindParam(1,$email);
+    $statement = $connexio->prepare("SELECT usuari_id FROM usuaris WHERE usuari = ?");
+    $statement->bindParam(1,$usuari);
     $statement->execute();
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $usuari_id = $row["usuari_id"];

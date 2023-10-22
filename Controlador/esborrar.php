@@ -5,19 +5,12 @@ include_once '../Model/mainfunction.php';
 include '../Vista/inserirvista.php';
 $connexio = connexio();
 try {
-    $email = "";
-    $email = $_SESSION['email'];
+    $usuari = "";
+    $usuari = $_SESSION['usuari'];
     $usuari_id = "";
-    $usuari_id = usuari($email);
-
-
-
-
-error_reporting(0);
-
-
+    $usuari_id = usuari($usuari);
+    error_reporting(0);
 // modificar
-
     $id = "";
     $id = $_POST['id']; 
     $statement = $connexio->prepare("DELETE FROM articles WHERE id = ? AND usuari_id = ?");
@@ -33,8 +26,6 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     echo '<li>' . $row["id"] . " - " . $row["article"] . '</li>';
 }
 echo '</ul></section>';
-
-
 } catch (Exception $e) {
     echo "Error:" .  $e->getMessage();
 }

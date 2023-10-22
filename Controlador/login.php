@@ -1,22 +1,22 @@
 <?php
 session_start();
 include_once '../Model/mainfunction.php';
-$email = $_POST['email'];
+$usuari = $_POST['usuari'];
 $contra = $_POST['contra'];
 $connexio_real = connexio();
     $error = "";
-     $statement = $connexio_real->prepare("SELECT * FROM usuaris WHERE email = ?");
-    $statement->bindParam(1,$email);
+     $statement = $connexio_real->prepare("SELECT * FROM usuaris WHERE usuari = ?");
+    $statement->bindParam(1,$usuari);
     $statement->execute();
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        if ($email == $row["email"] && (password_verify($contra,$row["contrasenya"]))){
-          $_SESSION['email'] = $email;
+      if ($usuari != $row["usuari"] || $_POST['usuari'] == "" || (!password_verify($contra,$row["contrasenya"]))){
+        $error = "No s'ha posat l'usuari o la contrasenya correctament";
+        include  '../Vista/login.vista.php';
+      } else if (($usuari == $row["usuari"] && (password_verify($contra,$row["contrasenya"])))){
+          $_SESSION['usuari'] = $usuari;
           $_SESSION['contra'] = $contra;
           include 'index.logat.php';
-        } else {
-          $error = "No se ha pasado el email o la contrasenya correctamente";
-          include  '../Vista/login.vista.php';
-        }
+        } 
     }
 ?>

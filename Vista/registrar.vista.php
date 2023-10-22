@@ -28,7 +28,7 @@
 	        }else{echo $error;}?>
 	</span> 
     </form>
-    <form action="login.vista.php" id="form" method="post"> 
+    <form action="../Vista/login.vista.php" id="form" method="post"> 
         Ya t'has registrat? Logat aqui!!<br>
         <input type="submit" value="Login">
     </form>

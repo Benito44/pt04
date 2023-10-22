@@ -10,11 +10,8 @@
 <body>
     <h1>Login</h1>
     <form action="../Controlador/login.php" id="form" method="post">
-                Email
-        <input type="text"  id="email" name="email" placeholder="Usuari1@gmail.com"><br><br>
-        
-
-
+    Usuari
+        <input type="text"  id="usuari" name="usuari" placeholder="Usuari1"><br><br>
         Contrasenya
         <input type="password" id="contra" name="contra" placeholder="Usuari1@1234"><br><br>
         <input type="submit" value="Login">
@@ -33,3 +30,4 @@
     </form>
 </body>
 </html>
+

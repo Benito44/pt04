@@ -5,10 +5,10 @@ include '../Vista/inserirvista.php';
 include_once '../Model/mainfunction.php';
 $connexio = connexio();
 try {
-    $email = "";
-    $email = $_SESSION['email'];
+    $usuari = "";
+    $usuari = $_SESSION['usuari'];
     $usuari_id = "";
-    $usuari_id = usuari($email);
+    $usuari_id = usuari($usuari);
 
 
 
