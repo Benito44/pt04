@@ -10,13 +10,14 @@ $connexio_real = connexio();
     $statement->execute();
 //  Comprovem que l'usuari existeix a la base de dades
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      if ($usuari != $row["usuari"] || $_POST['usuari'] == "" || (!password_verify($contra,$row["contrasenya"]))){
+      if ($usuari != $row["usuari"] || $usuari == null || (!password_verify($contra,$row["contrasenya"]))){
         $error = "No s'ha posat l'usuari o la contrasenya correctament";
-        include  '../Vista/login.vista.php';
-      } else if (($usuari == $row["usuari"] && (password_verify($contra,$row["contrasenya"])))){
+        include '../Vista/index.vista.php';
+      } else {
           $_SESSION['usuari'] = $usuari;
           $_SESSION['contra'] = $contra;
           include 'index.logat.php';
-        } 
+        }
     }
+
 ?>
